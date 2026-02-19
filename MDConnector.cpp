@@ -51,7 +51,7 @@ void MDConnector::on_open(websocketpp::connection_hdl hdl, client* c) {
 }
 
 void MDConnector::on_message(websocketpp::connection_hdl, client::message_ptr msg) {
-    // std::cout << "Received message: " << msg->get_payload() << std::endl;
+    std::cout << "Received message: " << msg->get_payload() << std::endl;
 
     mMDProcessor->push_raw_data(msg->get_payload());
 

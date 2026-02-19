@@ -40,7 +40,7 @@ private:
     static void on_close(websocketpp::connection_hdl hdl);
 
     client c;
-    std::string hostname = "stream.data.alpaca.markets/v2/sip";
+    std::string hostname = "stream.data.alpaca.markets/v2/test";
     std::string uri = "wss://" + hostname;
     static simdjson::dom::parser parser;
 
