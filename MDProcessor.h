@@ -41,9 +41,7 @@ private:
     MDProcessor(){;}
 
     RawData data_queue;
-    ProcessedData thread_1_data;
-    ProcessedData thread_2_data;
-    ProcessedData thread_3_data;
+    ProcessedData processed_data_queue;
 
 public:
 
@@ -51,12 +49,10 @@ public:
     void startUp();
     void shutDown();
     void push_raw_data(std::string raw_json);
-    void process_raw_data1();
-    void process_raw_data2();
-    void process_raw_data3();
+    void process_raw_data();
     bool try_pop(std::string& output);
-    bool try_pop(MDupdate& output, ProcessedData& data);
+    bool try_pop(MDupdate& output);
     void write_to_schmem();
-    void process_quote(const simdjson::dom::object& obj, ProcessedData& data, MDupdate& md);
-    void process_trade(const simdjson::dom::object& obj, ProcessedData& data, MDupdate& md);
+    void process_quote(const simdjson::dom::object& obj);
+    void process_trade(const simdjson::dom::object& obj);
 };
